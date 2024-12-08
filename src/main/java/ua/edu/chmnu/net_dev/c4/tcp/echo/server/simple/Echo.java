@@ -9,11 +9,7 @@ import java.net.Socket;
 
 public class Echo {
 
-   private final static int DEFAULT_PORT = 6710;
-
-    private static String inverse(String source) {
-        return new StringBuilder(source).reverse().toString();
-    }
+    private final static int DEFAULT_PORT = 6666;
 
     private static Integer resolvePort(String src, int defaultPort) {
         try {
@@ -42,8 +38,6 @@ public class Echo {
 
             String inPrefix = "[" + nick + "] < ";
 
-            String outPrefix = "[" + nick + "] > ";
-
             while (!socket.isClosed()) {
                 try {
                     System.out.println("Waiting text from: " + nick);
@@ -57,12 +51,6 @@ public class Echo {
                     }
 
                     System.out.println(inPrefix + inLine);
-
-                    String outLine = inverse(inLine);
-
-                    writer.println(outLine);
-
-                    System.out.println(outPrefix + outLine);
                 } catch (Exception e) {
                     e.printStackTrace();
                     break;
@@ -79,7 +67,7 @@ public class Echo {
 
         Integer port = DEFAULT_PORT;
 
-        if (args.length > 0 ) {
+        if (args.length > 0) {
             port = resolvePort(args[0], DEFAULT_PORT);
         }
 
@@ -91,7 +79,6 @@ public class Echo {
                 try (Socket socket = serverSocket.accept()) {
                     processClient(socket);
                 }
-
             }
         } catch (IOException e) {
             throw new RuntimeException(e);

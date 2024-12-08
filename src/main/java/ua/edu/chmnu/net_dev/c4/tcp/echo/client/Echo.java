@@ -10,7 +10,7 @@ import java.net.Socket;
 import java.util.Scanner;
 
 public class Echo {
-    private final static int DEFAULT_PORT = 6710;
+    private final static int DEFAULT_PORT = 6666;
 
     public static void main(String[] args) throws IOException {
 
@@ -22,7 +22,7 @@ public class Echo {
             endPoint = new EndPoint("localhost", DEFAULT_PORT);
         }
 
-        try(Socket clientSocket = new Socket(endPoint.getHost(), endPoint.getPort())) {
+        try (Socket clientSocket = new Socket(endPoint.getHost(), endPoint.getPort())) {
 
             System.out.println("Establish connection to " + endPoint.getHost() + ":" + endPoint.getPort());
 
@@ -52,12 +52,6 @@ public class Echo {
                     }
 
                     writer.println(line);
-
-                    System.out.println("Waiting for response...");
-
-                    line = reader.readLine();
-
-                    System.out.println("Received response: " + line);
                 }
             }
         }
