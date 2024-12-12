@@ -8,9 +8,9 @@ import javax.activation.*;
 public class EmailSender {
 
     public static void main(String[] args) {
-        String recipient = "shadow2006786@gmail.com";
+        String recipient = "recipient @gmail.com";
 
-        String sender = "shadow912999@gmail.com";
+        String sender = "sender@gmail.com";
         String senderPassword = "password";
 
         String host = "smtp.gmail.com";
