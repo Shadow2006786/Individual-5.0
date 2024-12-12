@@ -59,7 +59,7 @@ public class CheckingMails {
     public static void main(String[] args) {
         String host = "pop.gmail.com";
         String mailStoreType = "pop3";
-        String username = "shadow912999@gmail.com";
+        String username = "email@gmail.com";
         String password = "password";
 
         check(host, mailStoreType, username, password);
